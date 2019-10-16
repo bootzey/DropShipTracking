@@ -6,7 +6,7 @@ import java.io.File;
 public class FileChooser {
 
     public static String getFile() {
-        JFileChooser fileChooser = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
+        JFileChooser fileChooser = new JFileChooser();
         fileChooser.setDialogTitle("Pick your CSV File");
         FileNameExtensionFilter filter = new FileNameExtensionFilter("Only CSV Files", "csv");
         fileChooser.setFileFilter(filter);
