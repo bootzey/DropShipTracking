@@ -3,16 +3,17 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class App {
+public class DropShipTracking {
 
     public static void main(String[] args) {
         JFrame frame = new JFrame("Dropship Tracking Tool");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(300,300);
+        frame.setSize(700,500);
 
-        JTextArea textArea = new JTextArea();
+        JLabel textArea = new JLabel("Use the buttons below to generate your tracking file");
         //add a button to select a file
 
+        //ADD BUTTONS BELOW
         JButton importTrackingButton = new JButton("Import Tracking");
         importTrackingButton.setSize(75,20);
         importTrackingButton.addActionListener(new ActionListener() {
@@ -27,11 +28,20 @@ public class App {
 
             }
         });
+        JButton importOrdersButton = new JButton("Import Orders");
+        JButton processTrackingButton = new JButton("Process Tracking");
+        JButton exportTrackingButton = new JButton("Export Tracking File");
 
+        //Add components to panel
+        JPanel southPanel = new JPanel();
+        southPanel.add(importTrackingButton);
+        southPanel.add(importOrdersButton);
+        southPanel.add(processTrackingButton);
+        southPanel.add(exportTrackingButton);
+
+        frame.getContentPane().add(BorderLayout.SOUTH,southPanel);
 
         frame.getContentPane().add(BorderLayout.CENTER, textArea);
-        frame.getContentPane().add(BorderLayout.SOUTH, importTrackingButton);
-
         frame.setVisible(true);
 
     }
