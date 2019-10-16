@@ -12,26 +12,25 @@ public class App {
 
         JTextArea textArea = new JTextArea();
         //add a button to select a file
-        JButton fileChooseButton = new JButton("Choose File");
-        fileChooseButton.setSize(75,20);
 
-
-        fileChooseButton.addActionListener(new ActionListener() {
+        JButton importTrackingButton = new JButton("Import Tracking");
+        importTrackingButton.setSize(75,20);
+        importTrackingButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
 
                 String shipmentsFileName = FileChooser.getFile();
                 ShipmentRepo shipmentRepo = new ShipmentRepo();
                 shipmentRepo.loadShipments(shipmentsFileName);
+                DisplayTracking.displayTracking(shipmentRepo.toArray());
 
-                Shipment s = shipmentRepo.findShipment("165733").get();
-                textArea.setText(s.trackingNumber);
 
             }
         });
 
+
         frame.getContentPane().add(BorderLayout.CENTER, textArea);
-        frame.getContentPane().add(BorderLayout.SOUTH, fileChooseButton);
+        frame.getContentPane().add(BorderLayout.SOUTH, importTrackingButton);
 
         frame.setVisible(true);
 

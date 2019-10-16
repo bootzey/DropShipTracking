@@ -1,5 +1,5 @@
 public class Shipment {
-    public String trackingNumber,referenceNumbers,shipperName,shipToName,shipToCity,shipToState;
+    private String trackingNumber,referenceNumbers,shipperName,shipToName,shipToCity,shipToState;
 
     public Shipment(String trackingNumber, String referenceNumbers, String shipperName, String shipToName, String shipToCity, String shipToState) {
         this.trackingNumber = trackingNumber;
